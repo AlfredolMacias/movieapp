@@ -20,7 +20,7 @@ export const MovieApp = () => {
                 {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
                 <Switch>
-                    <Route exact path="/" component={ Inicio }/>
+                    <Route exact path="/movieapp" component={ Inicio }/>
                     <Route exact path="/series" component={InicioS}/>
                     <Route exact path="/movie/:movieId" component={DetalleScreen}/>
                 </Switch>
