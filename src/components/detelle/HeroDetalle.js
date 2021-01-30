@@ -2,10 +2,12 @@ import React from 'react'
 import { useFetch } from '../../Hooks/useFetch';
 
 export const HeroDetalle = ( {id} ) => {
-    const {loading, data} = useFetch(`movie/${id}?`);
+    let route = window.location.href;
+    route = route.split('/');
+    const {loading, data} = useFetch(`${route[3]}/${id}?`);
     const base_url = 'https://image.tmdb.org/t/p/original';
   
-    const { title, overview, backdrop_path, tagline, poster_path, original_title,release_date} = !!data && data;
+    const { title, overview, backdrop_path, tagline, poster_path, original_title,release_date, name} = !!data && data;
     
 
     return (
@@ -26,7 +28,7 @@ export const HeroDetalle = ( {id} ) => {
                                     <img className="md:h-96 h-1/2 sm:h-1/4 sm:w-1/3  w-1/2 mx-auto md:mx-0  md:w-full" src = { base_url + poster_path } alt={title}/>
                                 </div>
                                 <div className=" col-1 md:col-start-3 md:col-span-3 mx-16 text-center">
-                                    <h1 className="font-bold  text-4xl mb-5 uppercase">{ title }</h1>
+                                    <h1 className="font-bold  text-4xl mb-5 uppercase">{ title || name }</h1>
                                     <p className="font-bold text-3x1 mb-5">{tagline}</p>
                                     <p className="text-justify mb-5">{overview}</p>
                                     <p className="mb-5">Titulo original: {original_title}</p>

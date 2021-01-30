@@ -5,6 +5,7 @@ import { Similares } from './Similares';
 
 export const DetalleScreen = () => {
 
+    
     const {movieId} = useParams();
     return (
         <>

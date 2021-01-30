@@ -37,7 +37,7 @@ export const SeriesRecomendadas = () => {
                                 <p className="sm:text-sm text-xs text-justify text-gray-700 px-2 mr-1 my-3">
                                     { number_of_seasons + " Temporada(s)" || "No se pudo cargar la información" }
                                 </p>
-                                <Link to={`./movie/${id}`}>
+                                <Link to={`./tv/${id}`}>
                                     <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-xl border border-purple-200 bg-white hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Más ...</button>
                                 </Link>
                         </div>

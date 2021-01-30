@@ -3,7 +3,9 @@ import { useFetch } from '../../Hooks/useFetch';
 import { MovieCard } from './MovieCard';
 
 export const Similares = ( { id } ) => {
-    const {loading, data} = useFetch(`movie/${id}/similar?`);
+    let route = window.location.href;
+    route = route.split('/');
+    const {loading, data} = useFetch(`${route[3]}/${id}/similar?`);
     const { results } = !!data && data; 
     return (
         <>  

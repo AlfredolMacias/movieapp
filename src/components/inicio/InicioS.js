@@ -6,6 +6,7 @@ import { SectionRecomendadas } from './SectionRecomendadas';
 
 export const InicioS = () => {
     const tipo = "tv";
+    console.log(tipo);
     return (
         <div>
             <HeaderInicio tipo = {tipo}/>

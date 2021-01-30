@@ -36,7 +36,7 @@ export const HeaderInicio = ( {tipo} ) => {
                             <div className="z-20 col-start-2 col-span-4 text-white absolute inset-x-0 bottom-0 mb-40"> 
                                 <h1 className="font-bold  text-4xl lg:my-10  my-2 uppercase">{results[i].title || results[i].name}</h1>
                                 <p className="text-2x1 my-10">{results[i].overview}</p>
-                                <Link to={`./movie/${results[i].id}`} >
+                                <Link to={(results[i].title)?`./movie/${results[i].id}`:`./tv/${results[i].id}`} >
                                     <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 bg-white hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"> Ver detalles </button>
                                 </Link>
                             </div>
