@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useFetch } from '../../Hooks/useFetch';
+import { useFetchSerieRec } from '../../Hooks/useFetchSerieRec';
+// import { useFetch } from '../../Hooks/useFetch';
 const base_url = 'https://image.tmdb.org/t/p/original';
 
 export const MasTaquilleras = ( { tipo } ) => {
-    const {loading, data} = useFetch(`discover/${tipo}?sort_by=revenue.desc&`);
+    // const {loading, data} = useFetch(`discover/${tipo}?sort_by=revenue.desc&`);
+    const { loading, data } = useFetchSerieRec( tipo );
     
     const { results } = !!data && data;
      let movieItem;
@@ -29,7 +31,7 @@ export const MasTaquilleras = ( { tipo } ) => {
                 <>
                 <div key = {i}
                     className="md:flex flex  mb-3 md:mx-10 mx-3 my-7 md:max-w-2xl h-24">
-                       <img className="h-full inline w-1/4 md:w-1/4   object-cover object-contain" src={base_url + result.poster_path} alt={ result.title || result.name}/>
+                       <img className="h-full inline w-1/4 md:w-1/4   object-cover object-contain" src={(result.poster_path) ? base_url + result.poster_path : process.env.PUBLIC_URL + '/assets/placeholder.jpg' } alt={ result.title || result.name}/>
                         <div className="w-2/3  inline  md:w-2/3 px-4 md:py-4 ">
                             <p className="sm:font-bold md:text-lg md:text-2x1  align-middle md:py-1 md:ml-10">{result.title || result.name}</p>
                             {/* <p className="font-bold pt-3  md:pb-1 md:ml-10">Calificación. {result.vote_average}</p>
@@ -39,7 +41,7 @@ export const MasTaquilleras = ( { tipo } ) => {
 
                         </div>
                         <div className="object-center text-center align-center align-middle">
-                            <Link to={`./movie/${result.id}`}>
+                            <Link to={ (tipo === 'movie' ) ? `./movie/${result.id}` : `./tv/${result.id}`}>
                                 <button className="text-xl aling-middle px-2 mx-2 my-8 text-purple-600 font-semibold rounded-full border border-purple-200 bg-white hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">+</button>
                             </Link>
                         </div>
@@ -51,7 +53,7 @@ export const MasTaquilleras = ( { tipo } ) => {
     }
     return (
         <div>
-            <h1 className="text-center text-2x1 font-bold">Más Taquilleras</h1>
+            <h1 className="text-center text-2x1 font-bold">{(tipo ==='movie') ? 'Más taquilleras' : 'Más populares'}</h1>
             {
                 loading 
                     ?

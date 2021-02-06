@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFetchMovieRec } from '../../Hooks/useFetchMovieRec';
-const code = './public/code.jpg';
+
 let randomNum = Math.random() * (1000 - 1) + 1;
 randomNum = Math.floor(randomNum);
 const base_url = 'https://image.tmdb.org/t/p/original';
@@ -27,7 +27,7 @@ export const Recomendadas = () => {
                 (
                     <>
                     <div className="">
-                        <img className="object-fill w-full h-80 rounded-t" src={ backdrop_path ? base_url + backdrop_path : code} alt={ title }/>
+                        <img className="object-fill w-full h-80 rounded-t" src={ (backdrop_path) ? base_url + backdrop_path :  process.env.PUBLIC_URL + '/assets/placeholder.jpg'} alt={ title }/>
                     </div>
                     <div className="px-4 py-1 h-72 bg-gray-100 rounded-b shadow-xl">
                         <h2 className="font-bold text-2xl text-gray-800 my-6 text-center">{title}</h2>

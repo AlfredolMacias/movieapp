@@ -5,7 +5,6 @@ import { useFetchSerieRec } from '../../Hooks/useFetchSerieRec';
 let randomNum = Math.random() * (1000 - 1) + 1;
 randomNum = Math.floor(randomNum);
 const base_url = 'https://image.tmdb.org/t/p/original';
-const code = '../../../public/code.jpg';
 
 export const SeriesRecomendadas = () => {
     const {loading, data} = useFetchSerieRec(`tv/${randomNum}`);
@@ -27,7 +26,7 @@ export const SeriesRecomendadas = () => {
                     (
                         <>
                         <div className="">
-                            <img className="object-fill w-full h-80 rounded-t-xl" src={ backdrop_path ? base_url + backdrop_path : code } alt={name}/>
+                            <img className="object-fill w-full h-80 rounded-t-xl" src={ (backdrop_path) ? base_url + backdrop_path :  process.env.PUBLIC_URL + '/assets/placeholder.jpg'} alt={name}/>
                         </div>
                         <div className="px-4 py-1 h-72 bg-gray-100 rounded-b shadow-xl">
                             <h2 className="font-bold text-2xl text-gray-800 my-6 text-center">{name}</h2>

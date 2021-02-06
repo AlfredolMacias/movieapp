@@ -7,6 +7,7 @@ export const DetalleScreen = () => {
 
     
     const {movieId} = useParams();
+    window.scrollTo(0, 0)
     return (
         <>
             <HeroDetalle id={movieId}/>

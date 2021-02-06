@@ -9,7 +9,7 @@ export const Similares = ( { id } ) => {
     const { results } = !!data && data; 
     return (
         <>  
-            <p className="text-xl font-bold ml-7 mt-10">Peliculas Similares</p>
+            <p className="text-xl font-bold ml-7 mt-10">{(route[3] ==='movie') ? 'Peliculas Similares' : 'Series Similares'}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {
                     loading

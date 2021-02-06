@@ -26,13 +26,13 @@ export const HeroDetalle = ( {id} ) => {
                             <NavBar  />
                         </div>
                         <div className="relative flex w-full grid h-screen bg-fixed text-center bg-black  items-center">
-                            <img alt={title} src={base_url + backdrop_path} className="h-full w-full object-cover absolute inset-0 z-10 opacity-20"/>
+                            <img alt={title} src={ (backdrop_path) ? base_url + backdrop_path : process.env.PUBLIC_URL + '/assets/placeholder.jpg' } className="h-full w-full object-cover absolute inset-0 z-10 opacity-20"/>
                         
                             <div className="z-20 text-white absolute md:flex ">
                                 <div className="grid grid-cols-1 md:grid-cols-5 w-full items-center">
                                     {/* <div className="col-start-2 col-span-4"> */}
                                         <div className=" col-1 md:col-start-2 "  >
-                                            <img className="md:h-96 h-1/4 sm:w-1/3  w-1/3 mx-auto md:mx-0  md:w-full" src = { base_url + poster_path } alt={title}/>
+                                            <img className="md:h-96 h-1/4 sm:w-1/3  w-1/3 mx-auto md:mx-0  md:w-full" src = { (poster_path) ? base_url + poster_path : process.env.PUBLIC_URL + '/assets/placeholder.jpg' } alt={title}/>
                                         </div>
                                         <div className=" col-1 md:col-start-3 md:col-span-3 mx-16 text-center">
                                             <h1 className="font-bold  text-4xl mb-5 uppercase">{ title || name }</h1>
