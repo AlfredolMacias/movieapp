@@ -5,6 +5,7 @@ export const useFetch = ( url ) => {
     const apiKey = 'api_key=3f565a6bf0f27ce7c6671cbb814d5b52';
     const language = 'es-Mx'
     const urlPeticion = `${baseUrl}${url}${apiKey}&language=${language}`;
+    console.log( urlPeticion );
     const isMounted = useRef( true );
     const [popularState, setPopularState] = useState( { data: null, loading: true, error:null } );
 

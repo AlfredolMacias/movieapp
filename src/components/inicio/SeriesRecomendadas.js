@@ -1,15 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useFetchSerieRec } from '../../Hooks/useFetchSerieRec';
+import { useFetch } from '../../Hooks/useFetch';
 
 let randomNum = Math.random() * (1000 - 1) + 1;
 randomNum = Math.floor(randomNum);
 const base_url = 'https://image.tmdb.org/t/p/original';
 
 export const SeriesRecomendadas = () => {
-    const {loading, data} = useFetchSerieRec(`tv/${randomNum}`);
+    const {loading, data} = useFetch(`tv/${randomNum}?`);
+    
     
     const {overview, number_of_seasons, name, backdrop_path, id } = !!data && data;
+    if(!name){
+        console.log("asdsada");
+    }
+
    return (
         <div className="m-auto px-4 py-8 max-w-xl">
             <div className="rounded-b-xl shadow-xl" >

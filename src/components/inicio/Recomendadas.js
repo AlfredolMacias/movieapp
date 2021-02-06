@@ -8,9 +8,14 @@ const base_url = 'https://image.tmdb.org/t/p/original';
 
 
 export const Recomendadas = () => {
-        const {loading, data} = useFetchMovieRec(`movie/${randomNum}`);
-        
-        const { title, overview, backdrop_path, id } = !!data && data;
+    const {loading, data} = useFetchMovieRec(`movie/${randomNum}`);
+    
+    const { title, overview, backdrop_path, id } = !!data && data;
+    
+    if(!title){
+        console.log("asdsada");
+    }
+    
     return (
         <div className="m-auto px-4 py-8 max-w-xl">
             <div className="rounded-b-xl shadow-xl" >
