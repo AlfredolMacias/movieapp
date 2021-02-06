@@ -56,8 +56,8 @@ export const MasTaquilleras = ( { tipo } ) => {
                 loading 
                     ?
                     (
-                        <div className="alert alert-info text-center">
-                            Loading...
+                        <div className="flex flex-wrap justify-center content-center">
+                            <img src={ process.env.PUBLIC_URL + '/assets/bars-loading.gif' } alt="Cargando" />  
                         </div> 
                     )
                     :

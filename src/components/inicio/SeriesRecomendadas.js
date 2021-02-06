@@ -18,9 +18,9 @@ export const SeriesRecomendadas = () => {
                     loading
                     ?
                     (
-                        <div>
-                            Loading
-                        </div>
+                        <div className="flex flex-wrap justify-center content-center">
+                            <img src={ process.env.PUBLIC_URL + '/assets/bars-loading.gif' }  alt="Cargando"/>  
+                        </div> 
                     
                     )
                     :

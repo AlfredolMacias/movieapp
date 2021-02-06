@@ -9,14 +9,13 @@ import { DetalleScreen } from './detelle/DetalleScreen';
 import { Inicio } from './inicio/Inicio';
 import { InicioS } from './inicio/InicioS';
 import { Footer } from './ui/Footer';
-import { NavBar } from './ui/NavBar';
 
 
 export const MovieApp = () => {
     return (
         <Router>
             <div>
-                <NavBar/>
+                {/* <NavBar/> */}
 
                 {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
